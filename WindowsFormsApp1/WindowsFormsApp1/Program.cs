@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
         /// </summary>
         [STAThread]
         static void Main()
-        {是发DVD发vdf
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());    
