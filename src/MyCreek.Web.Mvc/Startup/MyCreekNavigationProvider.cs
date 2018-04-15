@@ -11,6 +11,7 @@ namespace MyCreek.Web.Startup
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
+            
             //context.Manager.MainMenu
             //.AddItem(
             //    new MenuItemDefinition(
