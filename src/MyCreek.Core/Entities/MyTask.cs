@@ -46,7 +46,7 @@ namespace MyCreek.Entities
         }
     }
 
-    public enum TaskState : byte
+    public enum TaskState : int
     {
         Open = 0,
         Completed = 1

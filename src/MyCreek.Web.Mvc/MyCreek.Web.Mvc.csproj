@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web" ToolsVersion="15.0">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
@@ -8,6 +8,9 @@
     <PackageId>MyCreek.Web.Mvc</PackageId>
     <UserSecretsId>AbpCompanyName-MyCreek-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
     <RootNamespace>MyCreek.Web</RootNamespace>
+    <FileUpgradeFlags>40</FileUpgradeFlags>
+    <UpgradeBackupLocation>C:\Users\WangFugui\Source\Repos\zjyx\Backup\src\MyCreek.Web.Mvc\</UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup>
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
