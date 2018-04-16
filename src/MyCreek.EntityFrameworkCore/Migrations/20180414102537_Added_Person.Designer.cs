@@ -1022,7 +1022,6 @@ namespace MyCreek.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Age");
 
                     b.Property<DateTime>("CreationTime");
 
