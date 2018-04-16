@@ -55,6 +55,7 @@ namespace MyCreek.Web.Startup
                     f => f.UseAbpLog4Net().WithConfig("log4net.config")
                 )
             );
+           
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
