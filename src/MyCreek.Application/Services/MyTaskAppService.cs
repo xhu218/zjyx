@@ -29,13 +29,17 @@ namespace MyCreek.Services
 
         public async Task<ListResultDto<TaskListDto>> GetAll(GetAllTasksInput input)
         {
+            //var tasks = await _taskRepository
+            //    .GetAll().Include(c=>c.AssignedPerson)
+            //    .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
+            //    .OrderByDescending(t => t.CreationTime)
+            //    .ToListAsync();
+
             var tasks = await _taskRepository
-                .GetAll().Include(c=>c.AssignedPerson)
-                .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
-                .OrderByDescending(t => t.CreationTime)
+                .GetAll()
                 .ToListAsync();
 
-            EventBus.Trigger(new TaskCompletedEventData { Task= tasks.FirstOrDefault() });
+            // EventBus.Trigger(new TaskCompletedEventData { Task= tasks.FirstOrDefault() });
 
             return new ListResultDto<TaskListDto>(
                 ObjectMapper.Map<List<TaskListDto>>(tasks)

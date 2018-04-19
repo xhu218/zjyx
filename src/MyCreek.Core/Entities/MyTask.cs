@@ -10,10 +10,11 @@ using System.Text;
 namespace MyCreek.Entities
 {
     [Table("AppTasks")]
-    public class MyTask : Entity, IHasCreationTime
+    public class MyTask : Entity, IHasCreationTime, ISoftDelete
     {
         public const int MaxTitleLength = 256;
         public const int MaxDescriptionLength = 64 * 1024; //64KB
+        public virtual bool IsDeleted { get; set; }
 
         [Required]
         [MaxLength(MaxTitleLength)]

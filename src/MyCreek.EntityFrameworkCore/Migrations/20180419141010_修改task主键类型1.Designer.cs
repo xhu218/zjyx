@@ -17,9 +17,10 @@ using System;
 namespace MyCreek.Migrations
 {
     [DbContext(typeof(MyCreekDbContext))]
-    partial class MyCreekDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180419141010_修改task主键类型1")]
+    partial class 修改task主键类型1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

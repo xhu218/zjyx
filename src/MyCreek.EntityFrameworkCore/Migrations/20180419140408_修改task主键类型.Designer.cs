@@ -17,9 +17,10 @@ using System;
 namespace MyCreek.Migrations
 {
     [DbContext(typeof(MyCreekDbContext))]
-    partial class MyCreekDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180419140408_修改task主键类型")]
+    partial class 修改task主键类型
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1056,7 +1057,7 @@ namespace MyCreek.Migrations
 
             modelBuilder.Entity("MyCreek.Entities.MyTask", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<Guid?>("AssignedPersonId");
