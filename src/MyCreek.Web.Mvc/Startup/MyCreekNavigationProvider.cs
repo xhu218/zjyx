@@ -54,6 +54,13 @@ namespace MyCreek.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "EventList",
+                        L("EventList"),
+                        url: "Events",
+                        icon: "business"
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
                         PageNames.Tenants,
                         L("Tenants"),
                         url: "Tenants",

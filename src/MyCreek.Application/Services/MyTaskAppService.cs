@@ -10,16 +10,19 @@ using Abp.Collections.Extensions;
 using System.Linq;
 using Abp.Linq.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Abp.Events.Bus;
+using MyCreek.Services.TaskEnent;
 
 namespace MyCreek.Services
 {
     public class MyTaskAppService : MyCreekAppServiceBase, IMyTaskAppService
     {
         private readonly IRepository<MyTask> _taskRepository;
-
+        public IEventBus EventBus { get; set; }
         public MyTaskAppService(IRepository<MyTask> taskRepository)
         {
             _taskRepository = taskRepository;
+            EventBus = NullEventBus.Instance;
         }
 
 
@@ -31,6 +34,8 @@ namespace MyCreek.Services
                 .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
                 .OrderByDescending(t => t.CreationTime)
                 .ToListAsync();
+
+            EventBus.Trigger(new TaskCompletedEventData { Task= tasks.FirstOrDefault() });
 
             return new ListResultDto<TaskListDto>(
                 ObjectMapper.Map<List<TaskListDto>>(tasks)
