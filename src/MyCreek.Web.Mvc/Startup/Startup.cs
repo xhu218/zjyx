@@ -73,6 +73,7 @@ namespace MyCreek.Web.Startup
                     );
                 }
             );
+           
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
