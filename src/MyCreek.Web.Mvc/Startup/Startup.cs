@@ -12,6 +12,8 @@ using MyCreek.Authentication.JwtBearer;
 using MyCreek.Configuration;
 using MyCreek.Identity;
 using MyCreek.Web.Resources;
+using Swashbuckle.AspNetCore.Swagger;
+using Abp.PlugIns;
 
 #if FEATURE_SIGNALR
 using Owin;
@@ -29,6 +31,11 @@ namespace MyCreek.Web.Startup
 
         public Startup(IHostingEnvironment env)
         {
+            var pluginPath = $"{env.ContentRootPath}\\MyPlugIns";
+            if (!System.IO.Directory.Exists(pluginPath))
+            {
+                System.IO.Directory.CreateDirectory(pluginPath);
+            }
             _appConfiguration = env.GetAppConfiguration();
         }
 
@@ -48,12 +55,23 @@ namespace MyCreek.Web.Startup
             services.AddSignalR();
 #endif
 
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info { Title = "AbpZeroTemplate API", Version = "v1" });
+                options.DocInclusionPredicate((docName, description) => true);
+            });
+
+            var pluginPath =  Environment.CurrentDirectory;
             // Configure Abp and Dependency Injection
             return services.AddAbp<MyCreekWebMvcModule>(
                 // Configure Log4Net logging
-                options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
-                )
+                options =>
+                {
+                    options.PlugInSources.Add(new FolderPlugInSource($"{pluginPath}\\MyPlugIns"));
+                    options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+                        f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                    );
+                }
             );
         }
 
@@ -85,6 +103,13 @@ namespace MyCreek.Web.Startup
                 routes.MapHub<AbpCommonHub>("/signalr");
             });
 #endif
+
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "AbpZeroTemplate API V1");
+            });
 
             app.UseMvc(routes =>
             {
