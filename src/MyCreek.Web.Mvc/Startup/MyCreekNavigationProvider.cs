@@ -61,6 +61,13 @@ namespace MyCreek.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
+                        "QuartzSchedule",
+                        L("QuartzSchedule"),
+                        url: "QuartzSchedule/ScheduleJob",
+                        icon: "business"
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
                         PageNames.Tenants,
                         L("Tenants"),
                         url: "Tenants",

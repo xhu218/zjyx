@@ -3,10 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using MyCreek.Configuration;
+using CreekQuartz;
 
 namespace MyCreek.Web.Startup
 {
-    [DependsOn(typeof(MyCreekWebCoreModule))]
+    [DependsOn(typeof(MyCreekWebCoreModule), typeof(CreekQuartzModule))]
     public class MyCreekWebMvcModule : AbpModule
     {
         private readonly IHostingEnvironment _env;

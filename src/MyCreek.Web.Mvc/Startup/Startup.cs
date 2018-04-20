@@ -15,6 +15,7 @@ using MyCreek.Web.Resources;
 using Swashbuckle.AspNetCore.Swagger;
 using Abp.PlugIns;
 
+
 #if FEATURE_SIGNALR
 using Owin;
 using Abp.Owin;
@@ -22,6 +23,8 @@ using MyCreek.Owin;
 #elif FEATURE_SIGNALR_ASPNETCORE
 using Abp.AspNetCore.SignalR.Hubs;
 #endif
+
+
 
 namespace MyCreek.Web.Startup
 {
@@ -61,7 +64,10 @@ namespace MyCreek.Web.Startup
                 options.DocInclusionPredicate((docName, description) => true);
             });
 
-            var pluginPath =  Environment.CurrentDirectory;
+    
+
+
+           var pluginPath =  Environment.CurrentDirectory;
             // Configure Abp and Dependency Injection
             return services.AddAbp<MyCreekWebMvcModule>(
                 // Configure Log4Net logging
@@ -122,6 +128,9 @@ namespace MyCreek.Web.Startup
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
+           
         }
 
 #if FEATURE_SIGNALR
