@@ -1,14 +1,17 @@
-﻿using Abp.EntityFrameworkCore.Configuration;
+﻿using Abp.Dapper;
+using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.EntityFrameworkCore;
 using MyCreek.EntityFrameworkCore.Seed;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace MyCreek.EntityFrameworkCore
 {
     [DependsOn(
         typeof(MyCreekCoreModule), 
-        typeof(AbpZeroCoreEntityFrameworkCoreModule))]
+        typeof(AbpZeroCoreEntityFrameworkCoreModule), typeof(AbpDapperModule))]
     public class MyCreekEntityFrameworkModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */

@@ -12,17 +12,22 @@ using Abp.Linq.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Abp.Events.Bus;
 using MyCreek.Services.TaskEnent;
+using Abp.Dapper.Repositories;
 
 namespace MyCreek.Services
 {
     public class MyTaskAppService : MyCreekAppServiceBase, IMyTaskAppService
     {
         private readonly IRepository<MyTask> _taskRepository;
+
+        private readonly IDapperRepository<MeetingRoom> _meetingRoomDapperRepository;
+
         public IEventBus EventBus { get; set; }
-        public MyTaskAppService(IRepository<MyTask> taskRepository)
+        public MyTaskAppService(IRepository<MyTask> taskRepository, IDapperRepository<MeetingRoom> meetingRoomDapperRepository)
         {
             _taskRepository = taskRepository;
             EventBus = NullEventBus.Instance;
+            _meetingRoomDapperRepository = meetingRoomDapperRepository;
         }
 
 
@@ -34,6 +39,9 @@ namespace MyCreek.Services
             //    .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
             //    .OrderByDescending(t => t.CreationTime)
             //    .ToListAsync();
+
+
+            var people = _meetingRoomDapperRepository.Query("select * from meetingrooms");
 
             var tasks = await _taskRepository
                 .GetAll()

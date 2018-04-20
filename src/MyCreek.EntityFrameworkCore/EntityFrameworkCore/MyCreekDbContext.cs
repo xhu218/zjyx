@@ -18,6 +18,8 @@ namespace MyCreek.EntityFrameworkCore
 
         public virtual DbSet<EventRegistration> EventRegistrations { get; set; }
 
+        public virtual DbSet<MeetingRoom> MeetingRooms { get; set; }
+        
         public MyCreekDbContext(DbContextOptions<MyCreekDbContext> options)
             : base(options)
         {
