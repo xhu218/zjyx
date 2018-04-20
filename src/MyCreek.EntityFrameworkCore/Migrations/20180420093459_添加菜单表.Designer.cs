@@ -17,9 +17,10 @@ using System;
 namespace MyCreek.Migrations
 {
     [DbContext(typeof(MyCreekDbContext))]
-    partial class MyCreekDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420093459_添加菜单表")]
+    partial class 添加菜单表
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1131,60 +1132,6 @@ namespace MyCreek.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppPersons");
-                });
-
-            modelBuilder.Entity("MyCreek.Entities.SysAdmin.MenuItemDefine", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CreatePageTemplate");
-
-                    b.Property<DateTime>("CreationTime");
-
-                    b.Property<long?>("CreatorUserId");
-
-                    b.Property<string>("DBTable");
-
-                    b.Property<string>("DBView");
-
-                    b.Property<long?>("DeleterUserId");
-
-                    b.Property<DateTime?>("DeletionTime");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("DisplayName");
-
-                    b.Property<string>("ExecSQL");
-
-                    b.Property<string>("GeneralPageTemplate");
-
-                    b.Property<string>("Icon");
-
-                    b.Property<string>("IndexPageTemplate");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<DateTime?>("LastModificationTime");
-
-                    b.Property<long?>("LastModifierUserId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("Order");
-
-                    b.Property<int>("ParentMenuId");
-
-                    b.Property<string>("Procedure");
-
-                    b.Property<string>("UpdatePageTemplate");
-
-                    b.Property<string>("Url");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SysMenuItem");
                 });
 
             modelBuilder.Entity("MyCreek.MultiTenancy.Tenant", b =>

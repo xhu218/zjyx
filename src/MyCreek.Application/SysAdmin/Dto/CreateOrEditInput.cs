@@ -9,7 +9,7 @@ namespace MyCreek.SysAdmin.Dto
     public  class CreateOrEditInput
     {
         public string Name { get; set; }
-        public string PId { get; set; }
-        public string Id { get; set; }
+        public int PId { get; set; }
+        public int Id { get; set; }
     }
 }

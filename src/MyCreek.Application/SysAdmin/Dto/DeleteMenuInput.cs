@@ -8,6 +8,6 @@ namespace MyCreek.SysAdmin.Dto
 {
     public class DeleteMenuInput
     {
-        public string MenuGuid { get; set; }
+        public int MenuGuid { get; set; }
     }
 }

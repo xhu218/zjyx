@@ -8,9 +8,9 @@ namespace MyCreek.Entities.SysAdmin
     /// <summary>
     /// 自定义菜单
     /// </summary>
-    public class MenuItemDefine : FullAuditedEntity<Guid>
+    public class MenuItemDefine : FullAuditedEntity
     {
-        public string ParentMenuGuid { get; set; }
+        public int ParentMenuId { get; set; }
         public string Name { get; set; }
         public string DisplayName { get; set; }
         public string Url { get; set; }

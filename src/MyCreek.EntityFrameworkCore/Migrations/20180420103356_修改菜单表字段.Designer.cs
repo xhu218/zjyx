@@ -17,9 +17,10 @@ using System;
 namespace MyCreek.Migrations
 {
     [DbContext(typeof(MyCreekDbContext))]
-    partial class MyCreekDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420103356_修改菜单表字段")]
+    partial class 修改菜单表字段
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

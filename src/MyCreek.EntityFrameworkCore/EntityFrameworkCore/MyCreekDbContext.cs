@@ -5,6 +5,8 @@ using MyCreek.Authorization.Users;
 using MyCreek.MultiTenancy;
 using MyCreek.Entities;
 using MyCreek.Entities.Events;
+using MyCreek.Entities.SysAdmin;
+using System.Collections.Generic;
 
 namespace MyCreek.EntityFrameworkCore
 {
@@ -19,7 +21,12 @@ namespace MyCreek.EntityFrameworkCore
         public virtual DbSet<EventRegistration> EventRegistrations { get; set; }
 
         public virtual DbSet<MeetingRoom> MeetingRooms { get; set; }
-        
+
+        /// <summary>
+        /// 系统菜单
+        /// </summary>
+        public virtual DbSet<MenuItemDefine> SysMenuItem { get; set; }
+
         public MyCreekDbContext(DbContextOptions<MyCreekDbContext> options)
             : base(options)
         {

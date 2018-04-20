@@ -17,6 +17,9 @@
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="KingLion.WebUtils.NPinyin" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MyCreek.Core\MyCreek.Core.csproj" />
   </ItemGroup>
 </Project>

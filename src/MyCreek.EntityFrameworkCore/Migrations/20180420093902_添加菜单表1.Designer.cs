@@ -17,9 +17,10 @@ using System;
 namespace MyCreek.Migrations
 {
     [DbContext(typeof(MyCreekDbContext))]
-    partial class MyCreekDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180420093902_添加菜单表1")]
+    partial class 添加菜单表1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1135,7 +1136,7 @@ namespace MyCreek.Migrations
 
             modelBuilder.Entity("MyCreek.Entities.SysAdmin.MenuItemDefine", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("CreatePageTemplate");
@@ -1174,7 +1175,7 @@ namespace MyCreek.Migrations
 
                     b.Property<int>("Order");
 
-                    b.Property<int>("ParentMenuId");
+                    b.Property<string>("ParentMenuGuid");
 
                     b.Property<string>("Procedure");
 

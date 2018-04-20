@@ -8,7 +8,7 @@ namespace MyCreek.SysAdmin.Dto
 {
     public class TemplateInput
     {
-        public string MenuGuid { get; set; }
+        public int MenuGuid { get; set; }
         public string TemplType { get; set; }
         public string Content { get; set; }
     }

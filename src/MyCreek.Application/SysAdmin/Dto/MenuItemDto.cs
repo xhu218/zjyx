@@ -12,7 +12,7 @@ namespace MyCreek.SysAdmin.Dto
     public class MenuItemDto
     {
         public string id { get; set; }
-        public string pId { get; set; }
+        public int pId { get; set; }
         public string name { get; set; }
         public bool open { get; set; }
 
